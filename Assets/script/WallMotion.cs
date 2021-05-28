@@ -15,7 +15,7 @@ public class WallMotion : MonoBehaviour
   {
     _rigidbody = GetComponent<Rigidbody2D>();
     velocity = new Vector2(_speed, 0);
-    _left = Camera.main.ViewportToWorldPoint(-Vector2.one).x;
+    _left = Camera.main.ViewportToWorldPoint(Vector2.zero).x;
   }
 
   // Update is called once per frame
