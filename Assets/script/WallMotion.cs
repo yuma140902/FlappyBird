@@ -10,7 +10,6 @@ public class WallMotion : MonoBehaviour
   Vector2 velocity;
   float _left;
 
-  // Start is called before the first frame update
   void Start()
   {
     _rigidbody = GetComponent<Rigidbody2D>();
@@ -18,7 +17,6 @@ public class WallMotion : MonoBehaviour
     _left = Camera.main.ViewportToWorldPoint(Vector2.zero).x;
   }
 
-  // Update is called once per frame
   void Update()
   {
     _rigidbody.velocity = velocity;

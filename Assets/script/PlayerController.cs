@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
   float _ceil;
   float _floor;
 
-  // Start is called before the first frame update
   void Start()
   {
     _rigidbody = GetComponent<Rigidbody2D>();
@@ -21,14 +20,12 @@ public class PlayerController : MonoBehaviour
     _floor = Camera.main.ViewportToWorldPoint(Vector2.zero).y;
   }
 
-  // Update is called once per frame
   void Update()
   {
     if (Input.GetKeyDown(KeyCode.Space))
     {
-      // ④Spaceキーを押したのでジャンプ処理
-      _rigidbody.velocity = Vector2.zero; // 落下速度を一度リセットする
-      _rigidbody.AddForce(new Vector2(0, JUMP_VELOCITY)); // 上方向に力を加える
+      _rigidbody.velocity = Vector2.zero;
+      _rigidbody.AddForce(new Vector2(0, JUMP_VELOCITY));
     }
   }
 
