@@ -25,7 +25,7 @@ public class WallGenerator : MonoBehaviour
     if (_timer < 0)
     {
       // ②0になったのでBlock生成
-      // ③BlockMgrの場所から生成
+      // ③WallGeneratorの場所から生成
       Vector3 position = transform.position;
       //position.y += 50;
       // ④プレハブをもとにBlock生成
