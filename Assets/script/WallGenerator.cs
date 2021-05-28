@@ -25,7 +25,7 @@ public class WallGenerator : MonoBehaviour
       // ②0になったのでBlock生成
       // ③WallGeneratorの場所から生成
       Vector3 position = transform.position;
-      //position.y += 50;
+      position.y += 1.1f * Mathf.Sin(Time.time) + Random.Range(-0.5f, 0.5f);
       // ④プレハブをもとにBlock生成
       GameObject obj = Instantiate(wall, position, Quaternion.identity);
       float speed = 5 + (Time.time * 0.1f);
