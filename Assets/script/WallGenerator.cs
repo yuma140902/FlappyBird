@@ -5,9 +5,10 @@ using UnityEngine;
 public class WallGenerator : MonoBehaviour
 {
 
-  public GameObject wall;
+  [SerializeField]
+  GameObject wall;
 
-  float _timer = 0;
+  private float timer = 0;
 
   void Start()
   {
@@ -16,16 +17,16 @@ public class WallGenerator : MonoBehaviour
 
   void Update()
   {
-    _timer -= Time.deltaTime;
-    if (_timer < 0)
+    this.timer -= Time.deltaTime;
+    if (this.timer < 0)
     {
-      Vector3 position = transform.position;
+      Vector3 position = this.transform.position;
       position.y += 1.1f * Mathf.Sin(Time.time) + Random.Range(-0.5f, 0.5f);
-      GameObject obj = Instantiate(wall, position, Quaternion.identity);
+      GameObject obj = Instantiate(this.wall, position, Quaternion.identity);
       float speed = 5 + (Time.time * 0.1f);
       obj.GetComponent<WallMotion>().SetSpeed(speed);
 
-      _timer = 2;
+      this.timer = 2;
     }
   }
 }

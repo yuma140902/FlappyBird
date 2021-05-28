@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class WallMotion : MonoBehaviour
 {
-  float _speed = -5;
+  private float speed = -5;
 
-  Rigidbody2D _rigidbody;
-  Vector2 velocity;
-  float _left;
+  private Rigidbody2D _rigidbody;
+  private Vector2 velocity;
+  private float left;
 
   void Start()
   {
-    _rigidbody = GetComponent<Rigidbody2D>();
-    velocity = new Vector2(_speed, 0);
-    _left = Camera.main.ViewportToWorldPoint(Vector2.zero).x;
+    this._rigidbody = GetComponent<Rigidbody2D>();
+    this.velocity = new Vector2(this.speed, 0);
+    this.left = Camera.main.ViewportToWorldPoint(Vector2.zero).x;
   }
 
   void Update()
   {
-    _rigidbody.velocity = velocity;
-    if (transform.position.x < _left)
+    this._rigidbody.velocity = this.velocity;
+    if (this.transform.position.x < this.left)
     {
-      Destroy(gameObject); // 画面外に出たので消す.
+      Destroy(this.gameObject); // 画面外に出たので消す.
     }
   }
 
   public void SetSpeed(float speed)
   {
-    _speed = -speed;
+    this.speed = -speed;
   }
 }

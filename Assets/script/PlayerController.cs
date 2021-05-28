@@ -8,24 +8,24 @@ public class PlayerController : MonoBehaviour
   [SerializeField]
   float JUMP_VELOCITY = 200;
 
-  Rigidbody2D _rigidbody;
+  private Rigidbody2D _rigidbody;
 
-  float _ceil;
-  float _floor;
+  private float ceil;
+  private float floor;
 
   void Start()
   {
-    _rigidbody = GetComponent<Rigidbody2D>();
-    _ceil = Camera.main.ViewportToWorldPoint(Vector2.one).y;
-    _floor = Camera.main.ViewportToWorldPoint(Vector2.zero).y;
+    this._rigidbody = GetComponent<Rigidbody2D>();
+    this.ceil = Camera.main.ViewportToWorldPoint(Vector2.one).y;
+    this.floor = Camera.main.ViewportToWorldPoint(Vector2.zero).y;
   }
 
   void Update()
   {
     if (Input.GetKeyDown(KeyCode.Space))
     {
-      _rigidbody.velocity = Vector2.zero;
-      _rigidbody.AddForce(new Vector2(0, JUMP_VELOCITY));
+      this._rigidbody.velocity = Vector2.zero;
+      this._rigidbody.AddForce(new Vector2(0, JUMP_VELOCITY));
     }
   }
 
@@ -34,24 +34,24 @@ public class PlayerController : MonoBehaviour
     Vector3 pos = transform.position;
     float y = pos.y;
 
-    if (y > _ceil)
+    if (y > ceil)
     {
-      _rigidbody.velocity = Vector2.zero;
-      pos.y = _ceil;
+      this._rigidbody.velocity = Vector2.zero;
+      pos.y = ceil;
     }
-    if (y < _floor)
+    if (y < floor)
     {
-      _rigidbody.velocity = Vector2.zero;
-      _rigidbody.AddForce(new Vector2(0, JUMP_VELOCITY));
-      pos.y = _floor;
+      this._rigidbody.velocity = Vector2.zero;
+      this._rigidbody.AddForce(new Vector2(0, JUMP_VELOCITY));
+      pos.y = floor;
     }
 
-    transform.position = pos;
+    this.transform.position = pos;
   }
 
   private void OnTriggerEnter2D(Collider2D collision)
   {
     // 衝突したので消滅
-    Destroy(gameObject);
+    Destroy(this.gameObject);
   }
 }
