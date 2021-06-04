@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,8 +48,11 @@ public class GameManager : MonoBehaviour
     float CenterY = Screen.height / 2;
     if (this.state == GameState.GameOver)
     {
-      // ⑥ゲームオーバーの描画
       DrawGameOver(CenterX, CenterY);
+      if (DrawRetryButton(CenterX, CenterY))
+      {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+      }
     }
   }
 
@@ -60,6 +64,15 @@ public class GameManager : MonoBehaviour
     float h = 100;
     Rect position = new Rect(CenterX - w / 2, CenterY - h / 2, w, h);
     GUI.Label(position, "GAME OVER");
+  }
+
+  bool DrawRetryButton(float CenterX, float CenterY)
+  {
+    float ofsY = 40;
+    float w = 100;
+    float h = 64;
+    Rect rect = new Rect(CenterX - w / 2, CenterY + ofsY, w, h);
+    return GUI.Button(rect, "RETRY");
   }
 
   // スコアの描画
