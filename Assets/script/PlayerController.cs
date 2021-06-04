@@ -8,7 +8,11 @@ public class PlayerController : MonoBehaviour
   [SerializeField]
   float JUMP_VELOCITY = 200;
 
+  public GameObject gameManager;
+
   private Rigidbody2D _rigidbody;
+
+  private GameManager _gameManagerObj;
 
   private float ceil;
   private float floor;
@@ -16,6 +20,7 @@ public class PlayerController : MonoBehaviour
   void Start()
   {
     this._rigidbody = GetComponent<Rigidbody2D>();
+    this._gameManagerObj = this.gameManager.GetComponent<GameManager>();
     this.ceil = Camera.main.ViewportToWorldPoint(Vector2.one).y;
     this.floor = Camera.main.ViewportToWorldPoint(Vector2.zero).y;
   }
@@ -53,5 +58,6 @@ public class PlayerController : MonoBehaviour
   {
     // 衝突したので消滅
     Destroy(this.gameObject);
+    this._gameManagerObj.SetGameOver();
   }
 }
