@@ -14,13 +14,11 @@ public class GameManager : MonoBehaviour
   private int score = 0;
   private GameState state = GameState.Loop;
 
-  // Start is called before the first frame update
   void Start()
   {
 
   }
 
-  // Update is called once per frame
   void Update()
   {
 
@@ -41,7 +39,6 @@ public class GameManager : MonoBehaviour
 
   private void OnGUI()
   {
-    // スコアを描画
     DrawScore();
 
     float CenterX = Screen.width / 2;
@@ -58,7 +55,6 @@ public class GameManager : MonoBehaviour
 
   void DrawGameOver(float CenterX, float CenterY)
   {
-    // 中央揃え
     GUI.skin.label.alignment = TextAnchor.MiddleCenter;
     float w = 400;
     float h = 100;
@@ -75,7 +71,6 @@ public class GameManager : MonoBehaviour
     return GUI.Button(rect, "RETRY");
   }
 
-  // スコアの描画
   void DrawScore()
   {
     GUI.skin.label.fontSize = 32;
