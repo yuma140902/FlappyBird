@@ -5,8 +5,7 @@ using UnityEngine;
 public class WallGenerator : MonoBehaviour
 {
 
-  [SerializeField]
-  GameObject wall;
+  public GameObject wall;
 
   private float timer = 0;
 
