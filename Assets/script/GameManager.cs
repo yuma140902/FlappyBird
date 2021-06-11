@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
       {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
       }
+      if (DrawReturnToTitleButton(CenterX, CenterY))
+      {
+        SceneManager.LoadScene(0);
+      }
     }
   }
 
@@ -64,11 +68,20 @@ public class GameManager : MonoBehaviour
 
   bool DrawRetryButton(float CenterX, float CenterY)
   {
-    float ofsY = 40;
-    float w = 100;
-    float h = 64;
+    float ofsY = 30;
+    float w = 120;
+    float h = 32;
     Rect rect = new Rect(CenterX - w / 2, CenterY + ofsY, w, h);
     return GUI.Button(rect, "RETRY");
+  }
+
+  bool DrawReturnToTitleButton(float CenterX, float CenterY)
+  {
+    float ofsY = 80;
+    float w = 120;
+    float h = 32;
+    Rect rect = new Rect(CenterX - w / 2, CenterY + ofsY, w, h);
+    return GUI.Button(rect, "TITLE");
   }
 
   void DrawScore()
