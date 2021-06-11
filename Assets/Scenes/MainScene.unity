@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10376ce1758075d498e14c3e2209bfc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JUMP_VELOCITY: 350
+  JUMP_VELOCITY: 300
   gameManager: {fileID: 1824443630}
 --- !u!70 &1490956352
 CapsuleCollider2D:
