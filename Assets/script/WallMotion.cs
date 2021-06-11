@@ -30,4 +30,12 @@ public class WallMotion : MonoBehaviour
   {
     this.speed = -speed;
   }
+
+  public void SetColor(Color color)
+  {
+    foreach (Renderer renderer in this.gameObject.GetComponentsInChildren<Renderer>())
+    {
+      renderer.material.color = color;
+    }
+  }
 }
